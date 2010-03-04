@@ -75,15 +75,15 @@ class DynamicFinder
      * @var array 
      */
     public $allowedFields;
-	
-	/**
-	 * To substitute _camelCase2underscore method if needed. Proposed by Murzik (Max Lozovoy).
-	 * Set this parameter in the format of call_user_func() callback array somewhere 
-	 * before the Dynamic Finder __call() method called.
-	 *
-	 * @var array
-	 */
-	public $columnParseCallback = array();
+    
+    /**
+     * To substitute _camelCase2underscore method if needed. Proposed by Murzik (Max Lozovoy).
+     * Set this parameter in the format of call_user_func() callback array somewhere
+     * before the Dynamic Finder __call() method called.
+     *
+     * @var array
+     */
+    public $columnParseCallback = array();
 
     /**
      * Unexistent methods handler
@@ -333,12 +333,12 @@ class DynamicFinder
                         default:
                             $cond = 'and' ;
                     }
-					
-					if (!empty($this->$columnParseCallback) && is_callable($this->$columnParseCallback)) {
-						$column = call_user_func($this->$columnParseCallback,$val[2]);
-					} else {
-						$column = $this->_camelCase2underscore($val[2]);
-					}
+
+                    if (!empty($this->$columnParseCallback) && is_callable($this->$columnParseCallback)) {
+                        $column = call_user_func($this->$columnParseCallback,$val[2]);
+                    } else {
+                        $column = $this->_camelCase2underscore($val[2]);
+                    }
                     
                     if (in_array($column, $fields) ){
                         $whereArray[] = array(
