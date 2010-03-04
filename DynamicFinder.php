@@ -335,7 +335,7 @@ class DynamicFinder
                     }
 
                     if (!empty($this->$columnParseCallback) && is_callable($this->$columnParseCallback)) {
-                        $column = call_user_func($this->$columnParseCallback,$val[2]);
+                        $column = call_user_func($this->columnParseCallback,$val[2]);
                     } else {
                         $column = $this->_camelCase2underscore($val[2]);
                     }
